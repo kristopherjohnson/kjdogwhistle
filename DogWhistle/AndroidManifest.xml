@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="net.kristopherjohnson.dogwhistle.MainActivity"
+            android:name="MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +25,19 @@
         </activity>
 
         <service
-            android:name="net.kristopherjohnson.dogwhistle.WhistleService"
+            android:name="WhistleService"
             android:label="@string/label_whistle_service" >
         </service>
+
+        <receiver android:name="WhistleWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/whistle_appwidget_info" />
+        </receiver>
     </application>
 
 </manifest>

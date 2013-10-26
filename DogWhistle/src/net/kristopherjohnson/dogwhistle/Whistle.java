@@ -17,12 +17,8 @@ public class Whistle {
 	 */
 	public static final String ACTION_WHISTLE_BLOWN = "Whistle.ACTION_WHISTLE_BLOWN";
 
-	/**
-	 * 48000 is the native sampling rate of the HTC One
-	 */
-	private static final int sampleRate = 48000;
-
-	private static final int streamType = AudioManager.STREAM_ALARM;
+	private static final int sampleRate = 44100;
+	private static final int streamType = AudioManager.STREAM_MUSIC;
 	private static final int channelConfig = AudioFormat.CHANNEL_OUT_MONO;
 	private static final int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
 	private static final int mode = AudioTrack.MODE_STATIC;
@@ -34,14 +30,18 @@ public class Whistle {
 	}
 
 	public void blow(int durationMillis) {
-		final short[] audioData = generatePCM16SquareWave(durationMillis);
+		final short[] audioData = generatePCM16AudioWave(durationMillis);
 		startPlayingPCM16AudioData(audioData);
 		broadcastIntentWithAction(ACTION_WHISTLE_BLOWN);
 	}
 
-	private short[] generatePCM16SquareWave(int durationMillis) {
+	private short[] generatePCM16AudioWave(int durationMillis) {
+		// TODO: determine sample size based upon desired duration
+		// For now, just generate one second of sound.
 		final short[] audioData = new short[sampleRate];
 		for (int i = 0; i < sampleRate; i += 2) {
+			// Gradually fade in and then fade out, using a sine wave from 0 to
+			// PI
 			short amplitude = (short) Math.round(Math.sin(Math.PI * (double) i
 					/ (double) sampleRate)
 					* Short.MAX_VALUE);

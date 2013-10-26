@@ -2,6 +2,9 @@ Dog Whistle
 
 Simple Android app that plays a 22-kHz tone when a button is pressed.
 
+Also provides a home-screen widget that plays the tone.
+
+
 Copyright (c) 2013 Kristopher Johnson
 
 Permission is hereby granted, free of charge, to any person obtaining

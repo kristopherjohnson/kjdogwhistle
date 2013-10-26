@@ -1,0 +1,10 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/whistle_appwidget"
+    android:initialLayout="@layout/whistle_appwidget"
+    android:minHeight="40dp"
+    android:minWidth="40dp"
+    android:previewImage="@drawable/ic_launcher"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen|keyguard" >
+
+</appwidget-provider>
