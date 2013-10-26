@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dog Whistle</string>
+    <string name="action_whistle">Blow Whistle</string>
+    <string name="label_whistle_service">Whistle Service</string>
+    <string name="text_whistle_blown">Whistle blown</string>
+    <string name="label_button_whistle">Tap the button to sound the whistle</string>
+
+</resources>
